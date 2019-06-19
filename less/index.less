@@ -4,63 +4,272 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 html {
-	font-size: 62.5%;
+  font-size: 62.5%;
+  color: darkred;
+
 }
-.container{
-	max-width:880;
-	margin: 0 auto;
+
+//variables
+@red-border: 2px solid red;
+//mixens
+.p-class {
+  align-self: flex-end;
+  font-size: 1.7rem;
+ 
 }
+.side { // for the side to side boxes
+	width: 50%;
+	font-size: 1.5rem;
+	text-align: center;
+	border: @red-border;
+	}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+header { // top of of the page
+  display: flex;
+  background-color: black;
+  color: white;
+  border: @red-border;
+  flex-direction: column;
+  font-size: 1.7rem;
+  justify-content: space-between;
+  @media (max-width: 800px) {
+    flex-direction: row;
+    text-align: right;
+  }
+  @media (max-width: 500px) {
+    width: 50%;
+    height: 150px;
+    flex-direction: column;
+    text-align: center;
+  }//end header
+
+  nav { //for nav to different pages
+    font-size: 1.5rem;
+    align-self: center;
+    flex-grow: 1;
+    color: white;
+    h2 {
+      align-content: center;
+    }
+
+    p {
+      align-self: flex-end;
+    }
+
+    @media (max-width: 500px) {
+      h2 {
+        align-self: center;
+      }
+    }
+    @media (max-width: 800px) {
+      width: 50%;
+    }
+  }//end nav
+
+  h1 {
+    align-self: center;
+    padding-bottom: 1rem;
+  }
+}
+
+nav a {
+  color: white;
+}
+.main { //main content
+  display: flex;
+  @media (max-width: 500px) {
+	flex-direction: column;
+	
+  }
+}
+
+.left-side { // left content
+  .side();
+  background-color: darkgray;
+  padding: 10px;
+  }
+  h3 {
+	font-weight: bold;
+  }
+  h2 {
+	font-weight: bold;
+	font-size: 3.0rem;
+  p {
+    .p-class();
+  }
+  @media (max-width: 800px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 500px) {
+    p {
+      font-size: 1rem;
+    }
+  }
+}//end left side
+
+.right-side { //right content
+  .side();
+  background-color: blanchedalmond;
+  padding: 5px 7px;
+  h3 {
+    font-weight: bold;
+  }
+  h2 {
+    font-weight: bold;
+    font-size: 2.0rem;
+  }
+  p {
+    .p-class();
+  }
+  @media (max-width: 800px) {
+	font-size: 1.2rem;
+	
+  }
+  @media (max-width: 500px) {
+	  background-color: darkgray;
+    p {
+      font-size: 1rem;
+    }
+  }
+}//end right content
